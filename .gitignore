@@ -9,6 +9,7 @@ gradle-app.setting
 !src/**/build/
 !gradle-wrapper.jar
 node_modules/
+lib/
 
 ### STS ###
 .apt_generated
