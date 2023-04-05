@@ -1,13 +1,26 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th>
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+   <!-- <link rel="stylesheet" href="css/bulma.min.css"> -->
+    <!-- <link rel="stylesheet" href="/src/main/resources/static/css/bulma.css"> -->
+    <link rel="stylesheet" href="http://localhost:8080/css/bulma.purged.css">
+    <!-- <link rel="stylesheet" href="bulma.css" > -->
+    <!-- <link rel="stylesheet" href="bulma.css.map" > -->
     <title>About Me</title>
 </head>
+<header>
+
+</header>
 <body>
-    <h1>Welcome!</h1>
-    <h1 th:text="'0 ' + ${atUrl}"></h1>
-    <div th:text="'1 ' + ${atUrl}"></div>
-    <p th:text="'2 ' + ${atUrl}"></p>
+    <!-- <div data-collapse="medium" data-animation="default" data-duration="400" role="banner" class="header is-centered button navigation banner navigation-bar w-nav"> -->
+        <!-- <h1>test!</h1> -->
+    <!-- </div> -->
+
+    <h1 class="button">Welcome!</h1>
+    <h3 class="button" th:text="'0 ' + ${atUrl}">Current URL</h1>
+    <div class="button" th:text="'1 ' + ${atUrl}"></div>
+    <p class="button" th:text="'2 ' + ${atUrl}"></p>
+
 </body>
 </html>
