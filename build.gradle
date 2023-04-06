@@ -35,7 +35,7 @@ tasks.register('watchForChanges') {
 	doLast {
 		var refreshRateMS = 200;
 		while (true) {
-			def configDir = fileTree("F:\\.Java Workspace\\aboutme\\src\\main\\resources\\templates")
+			def configDir = fileTree("F:\\.Java Workspace\\aboutme\\src\\main\\resources")
 			def changes = configDir.files.findAll { it.lastModified() > new Date().time - refreshRateMS }
 			if (!changes.isEmpty()) {
 				changes.each { file -> println("Change detected in file: " + file.path)}
