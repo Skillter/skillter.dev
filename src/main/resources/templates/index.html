@@ -2,25 +2,23 @@
 <html lang="en" xmlns:th>
 <head>
     <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
-   <!-- <link rel="stylesheet" href="css/bulma.min.css"> -->
-    <!-- <link rel="stylesheet" href="/src/main/resources/static/css/bulma.css"> -->
-    <link rel="stylesheet" href="http://localhost:8080/css/bulma.purged.css">
-    <!-- <link rel="stylesheet" href="bulma.css" > -->
-    <!-- <link rel="stylesheet" href="bulma.css.map" > -->
+    <!-- <link rel="stylesheet" href="/css/bulma.purged.css"> -->
+    <link rel="stylesheet" href="http://localhost:8080/css/bulma.css">
+    <script src="http://localhost:8080/js/particles.js"></script>
     <title>About Me</title>
 </head>
 <header>
 
 </header>
 <body>
-    <!-- <div data-collapse="medium" data-animation="default" data-duration="400" role="banner" class="header is-centered button navigation banner navigation-bar w-nav"> -->
-        <!-- <h1>test!</h1> -->
-    <!-- </div> -->
+<!-- <div data-collapse="medium" data-animation="default" data-duration="400" role="banner" class="header is-centered button navigation banner navigation-bar w-nav"> -->
 
-    <h1 class="button">Welcome!</h1>
-    <h3 class="button" th:text="'0 ' + ${atUrl}">Current URL</h1>
-    <div class="button" th:text="'1 ' + ${atUrl}"></div>
-    <p class="button" th:text="'2 ' + ${atUrl}"></p>
+<div id="particles-js"></div>
+
+<h1 class="button">Welcome! :3</h1>
+<h3 class="button" th:text="'0 ' + ${atUrl}">Current URL</h3>
+<div class="button" th:text="'1 ' + ${atUrl}"></div>
+<p class="button" th:text="'2 ' + ${atUrl}"></p>
 
 </body>
 </html>
