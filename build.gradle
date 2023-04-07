@@ -33,11 +33,13 @@ dependencies {
 
 tasks.register('watchForChanges') {
 	doLast {
-		var refreshRateMS = 200;
+		var refreshRateMS = 100;
+		var lastTrigger = null;
 		while (true) {
 			def configDir = fileTree("F:\\.Java Workspace\\aboutme\\src\\main\\resources")
-			def changes = configDir.files.findAll { it.lastModified() > new Date().time - refreshRateMS }
+			def changes = configDir.files.findAll { it.lastModified() > new Date().time - refreshRateMS * 1.6 }
 			if (!changes.isEmpty()) {
+				if (!(lastTrigger == null || new Date().time - lastTrigger >= 500)) continue; // Anti false double trigger and problematic spam prevention
 				changes.each { file -> println("Change detected in file: " + file.path)}
 				// here implement triggering processResources task
 				// welp, there's simply no way to do that, you could use finalizedBy(), but then the current task is finished and there's no way to run it again automatically, spent few hours on this but it has to be abandoned
@@ -45,6 +47,7 @@ tasks.register('watchForChanges') {
 				// oh my god it actually works, i hate my job it was so f annoying i'm never touching it again
 				var command = "\"" + System.getProperty("user.dir") + "\\gradlew.bat\" processResources"
 				command.execute()
+				lastTrigger = new Date().time
 			}
 			sleep(refreshRateMS)
 		}
