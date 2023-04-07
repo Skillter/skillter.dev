@@ -1,24 +1,108 @@
-
 body {
-    margin: 0;
-    /* font:normal 75% Arial, Helvetica, sans-serif; */
-  }
-  
-  canvas {
-    display: block;
-    /* vertical-align: bottom; */
-  }
-  
-  /* ---- particles.js container ---- */
-  
-  #particles-js {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-color: #33223a;
-    /* background-image: url(""); */
-    /* background-repeat: no-repeat; */
-    /* background-size: cover; */
-    /* background-position: 50% 50%; */
-  }
-  
+  margin: 0;
+  /* font:normal 75% Arial, Helvetica, sans-serif; */
+}
+
+canvas {
+  display: block;
+  /* vertical-align: bottom; */
+}
+
+/* ---- particles.js container ---- */
+
+#particles-js {
+  position: absolute;
+  width: 100%;
+  height: 98%;
+  background-image: linear-gradient(to right bottom, #4d3d66, #241b36);
+  /* background-image: url(""); */
+  /* background-repeat: no-repeat; */
+  /* background-size: cover; */
+  /* background-position: 50% 50%; */
+}
+
+#second-page {
+  position: absolute;
+  top: 98%;
+  filter: blur(8px);
+  transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+  width: 100%;
+  height: 200%;
+  /* background-image: linear-gradient(to right bottom, #65606d, #4a4653); */
+  background-image: url("https://irisshaders.net/images/backgrounds/iris-bkg-light.webp");
+}
+
+#scroll-down-button {
+  position: inherit;
+  background-color: darkgray;
+  padding: 0px;
+  height: 40px;
+  width: 40px;
+  border-radius: 5px; /* makes the shape rounded */
+  /* vertical-align: middle; */
+  bottom: 20px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  font-size: 200%;
+  /* overflow-clip-margin: content-box;
+  overflow: hidden; */
+
+}
+
+#main-profile {
+  position: inherit;
+  background-color: darkblue;
+  padding: 0px;
+  /* height: 300px; */ /* Don't want these, even tho invisible they stop particles tracking*/
+  /* width: 200px; */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#avatar {
+  /* position: inherit; */
+  position: absolute;
+  padding: 0px;
+  height: 200px;
+  width: 200px;
+  border-radius: 9999px;
+  /* top: 0px; */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-image: url(/images/avatar.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-width: 10px;
+  border-color: black;
+
+}
+  /* :: {
+box-shadow: 0px 2px 10px rgb(0, 0, 0);  
+} */ 
+
+.button:hover {
+  filter: brightness(75%);
+
+}
+
+.button:active {
+  border-width: var(border-width) + 10; /* doesn't work like this */
+}
+
+.center-horizontal {
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+.center-vertical {
+  left: 50%;
+  transform: translate(0, -50%);
+}
+
+.center {
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
