@@ -2,25 +2,34 @@
 <html lang="en" xmlns:th>
 <head>
     <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
-    <!-- <link rel="stylesheet" href="/css/bulma.purged.css"> -->
+    <!-- <link rel="stylesheet" href="/css/all.purged.css"> -->
     <link rel="stylesheet" href="http://localhost:8080/css/bulma.css">
+    <link rel="stylesheet" href="http://localhost:8080/css/main.css">
     <!-- <script src="/js/particles.js"></script> -->
     <script src="http://localhost:8080/js/particles.js"></script>
     <!-- <script src="/js/index.js"></script> -->
     <script type="module" src="http://localhost:8080/js/index.js"></script>
-    <!-- <link rel="stylesheet" href="/css/main.css"> -->
-    <link rel="stylesheet" href="http://localhost:8080/css/main.css">
+
+    <!-- <link rel="stylesheet" href="http://localhost:8080/css/darkmode.css"> -->
+
     <title>About Me</title>
 </head>
 <body>
-    <div id="particles-js"></div>
+    <div id="particles-js">
+        <h1 class="button">Welcome! :3</h1>
+        <h3 class="button" th:text="'0 ' + ${atUrl}">Current URL</h3>
+        <div class="button" th:text="'1 ' + ${atUrl}"></div>
+        <p class="button" th:text="'2 ' + ${atUrl}"></p>
+        <div id="main-profile">
+            <div id="avatar"></div>
+        </div>
+        <div id="scroll-down-button" class="button is-bold has-shadow">⬇</div>
+    </div>
     <!-- <div data-collapse="medium" data-animation="default" data-duration="400" role="banner" class="header is-centered button navigation banner navigation-bar w-nav"> -->
         
-    
-    <h1 class="button">Welcome! :3</h1>
-    <h3 class="button" th:text="'0 ' + ${atUrl}">Current URL</h3>
-    <div class="button" th:text="'1 ' + ${atUrl}"></div>
-    <p class="button" th:text="'2 ' + ${atUrl}"></p>
+
+    <div id="second-page"></div>
+
     
 </body>
 </html>
