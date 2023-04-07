@@ -25,5 +25,5 @@ var files   = ['templates/**/*.html'],
 
 uncss(files, options, function (error, output) {
   console.log(output);
-  fs.writeFileSync("./static/css/bulma.purged.css", output)
+  fs.writeFileSync("./static/css/all.purged.css", output)
 });
