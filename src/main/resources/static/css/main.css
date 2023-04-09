@@ -50,8 +50,7 @@ canvas {
 }
 
 #main-profile {
-  position: inherit;
-  background-color: darkblue;
+  position: absolute; 
   padding: 0px;
   /* height: 300px; */ /* Don't want these, even tho invisible they stop particles tracking*/
   /* width: 200px; */
@@ -61,26 +60,68 @@ canvas {
 }
 
 #avatar {
-  /* position: inherit; */
   position: absolute;
   padding: 0px;
   height: 200px;
   width: 200px;
   border-radius: 9999px;
-  /* top: 0px; */
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
-  background-image: url(/images/avatar.png);
+  /* background-image: url(/images/avatar.png); */
   background-size: cover;
   background-repeat: no-repeat;
   border-width: 10px;
   border-color: black;
-
+  transition: opacity 1s ease-out, transform 300ms ease-out, translate 400ms ease-out !important;
+  /* animation: fade-in 1s ease-out forwards; */
+  /* cursor: pointer !important; */
+  pointer-events: all;
+  user-select: none;
+  translate: -50% -96%; /* Bottom of the sphere is at the center */
+  box-shadow: 0px 2px 10px rgb(0, 0, 0);  
+  z-index: 3; /* Pull out to the front */
 }
-  /* :: {
-box-shadow: 0px 2px 10px rgb(0, 0, 0);  
-} */ 
+
+#name {
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  translate: -50% 0%; /* Top of the text box is at the center */
+  font-family: 'Courier New', Courier, monospace;
+  color: white;
+  font-size: 200%;
+  transition: opacity 1s ease-out, top 1000ms ease-out !important;
+  z-index: 2;
+}
+
+#avatar:hover {
+  transform: scale(105%, 105%);
+  will-change: transform;
+} 
+#avatar:active {
+  transform: scale(95%, 95%);
+  will-change: transform;
+} 
+/* 
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+} */
+
+.fade {
+  opacity: 0; /* fade in, js will handle */
+  transition: opacity 1s ease-out;
+}
+
+
+/* .fade, #avatar {
+  transition: opacity 1s ease-out, transform 300ms ease-out !important;
+} */
+
+
+img {
+  max-width: none !important;
+}
 
 .button:hover {
   filter: brightness(75%);
