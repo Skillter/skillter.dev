@@ -8,7 +8,7 @@
     <!-- <script src="/js/particles.js"></script> -->
     <script src="http://localhost:8080/js/particles.js"></script>
     <!-- <script src="/js/index.js"></script> -->
-    <script type="module" src="http://localhost:8080/js/index.js"></script>
+    <script src="http://localhost:8080/js/index.js"></script>
 
     <!-- <link rel="stylesheet" href="http://localhost:8080/css/darkmode.css"> -->
 
@@ -16,7 +16,8 @@
 </head>
 <body>
     <div id="particles-js">
-        <!-- <div class="button" th:text="'0 ' + ${atUrl}">Current URL</div> -->
+        <img src="/images/avatar.png" id="welcome-button" class="button fade" th:text="'0 ' + ${atUrl}" onload="fadeIn(this, 750, 1000)" >Current URL</img>
+        
         <div id="main-profile">
             <img id="avatar" class="fade" src="/images/avatar.png" unselectable="on" onload="animateProfile()">
             <div id="name" class="fade">Skillter</div>
@@ -28,7 +29,6 @@
                         document.getElementById('name').style.opacity = 1
                         document.getElementById('name').style.top = "12px"
                     }, 750)
-
                 }
             </script>
         </div>
