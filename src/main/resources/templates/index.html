@@ -16,14 +16,23 @@
 </head>
 <body>
     <div id="particles-js">
-        <h1 class="button">Welcome! :3</h1>
-        <h3 class="button" th:text="'0 ' + ${atUrl}">Current URL</h3>
-        <div class="button" th:text="'1 ' + ${atUrl}"></div>
-        <p class="button" th:text="'2 ' + ${atUrl}"></p>
+        <!-- <div class="button" th:text="'0 ' + ${atUrl}">Current URL</div> -->
         <div id="main-profile">
-            <div id="avatar"></div>
+            <img id="avatar" class="fade" src="/images/avatar.png" unselectable="on" onload="animateProfile()">
+            <div id="name" class="fade">Skillter</div>
+            <script>
+                function animateProfile() {
+                    document.getElementById('avatar').style.opacity = 1
+                    document.getElementById('avatar').style.translate = "-50% -100%"
+                    setTimeout(function() {
+                        document.getElementById('name').style.opacity = 1
+                        document.getElementById('name').style.top = "12px"
+                    }, 750)
+
+                }
+            </script>
         </div>
-        <div id="scroll-down-button" class="button is-bold has-shadow">⬇</div>
+        <div id="scroll-down-button" class="button is-bold has-shadow ">⬇</div>
     </div>
     <!-- <div data-collapse="medium" data-animation="default" data-duration="400" role="banner" class="header is-centered button navigation banner navigation-bar w-nav"> -->
         
