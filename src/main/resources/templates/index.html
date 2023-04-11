@@ -29,21 +29,20 @@
                 function animateProfile() {
                     document.getElementById('avatar').style.opacity = 1
                     document.getElementById('avatar').style.translate = "-50% -100%"
-                    setTimeout(function() {
+                }
+                setTimeout(function() {
                         document.getElementById('name').style.opacity = 1
                         document.getElementById('name').style.top = "12px"
                         setTimeout(function() {
                             document.getElementById('tld').style.opacity = 1
                             document.getElementById('tld').style.top = "12px"
-                        }, 500)
+                        }, 750)
                     }, 750)
-                }
-                
             </script>
         </div>
   <div id="scroll-down-button" style="transition: transform 200ms ease-out, filter 200ms ease-out, border 100ms ease-out;" class="button fade"> <!-- ⬇ -->
             <script> 
-            fadeIn("scroll-down-button")
+            fadeIn("scroll-down-button", 1000, 0)
             </script>
             <svg class="svg" version="1.1" viewBox="0 0 612 612" >
                 <path class="st-arrow" d="M317.5,487.6c0.3-0.3,0.4-0.7,0.7-1.1l112.6-112.6c6.3-6.3,6.3-16.5,0-22.7c-6.3-6.3-16.5-6.3-22.7,0
