@@ -1,35 +1,40 @@
 // import {} from "css/main.css"
 
 particlesJS.load("particles-js", "particles.json");
+scrollButtonAnimation(1000)
 
 function fadeIn1(element) {
     element.style.opacity = 1;
 } // Needs to have transition: opacity 0.5s ease-out;
 
-function fadeIn(element, durationMS, delayMS, percentage, pixels) { // delay required to load after css file
-    if (delayMS === null || delayMS === undefined) {
+
+// TODO: clean it up man
+// Sees element.style.translate always as empty String if there's no delay
+// Doesn't work if the element has a class with translate that is !important
+function fadeIn(elementID, durationMS, delayMS, percentage, pixels) {
+
+    if (delayMS === null || delayMS === undefined || delayMS < 100) {
         delayMS = 100
     }
      if (percentage === null || percentage === undefined) {
-        percentage = 5
+        percentage = 10
     }
      if (pixels === null || pixels === undefined) {
         pixels = 32
     }
-    setTimeout(function() {
+    if (elementID === null || elementID === undefined) {
+        console.log("element is null")
+        return
+    }
+    if (durationMS === null || durationMS === undefined) {
+        durationMS = "500ms"
+    } else {
+        durationMS = durationMS + "ms"
+    }
+    setTimeout(function() { // delay required to load after css file
+        let element = document.getElementById(elementID)
         console.log(element.style.translate)
-        console.log("1")
-        if (element === null || element === undefined) {
-            console.log("element is null")
-            return
-        }
-        console.log("2") //
-        if (durationMS === null || durationMS === undefined) {
-            durationMS = "500ms"
-        } else {
-            durationMS = durationMS + "ms"
-        }
-
+        console.log(element.style.transition)
         console.log("3")
         if (element.style.transition !== null && element.style.transition !== undefined && element.style.transition !== "") {
             console.log("transition " + element.style.transition) 
@@ -45,12 +50,15 @@ function fadeIn(element, durationMS, delayMS, percentage, pixels) { // delay req
         console.log(element.style)
         console.log("translate" + element.style.translate)
 
-        // Sees element.style.translate always as empty String idk why
+        let translate;
+
+
         if (element.style.translate !== null && element.style.translate !== undefined && element.style.translate !== "") {
         console.log("if fired")
         
-        var translate = element.style.translate.split(" ")
-        var number;
+        element = element.style.translate.split(" ")
+        let number;
+        console.log("aaaaaaaaaaa" + translate)
         if (translate[1].includes("%")) {
             number = (Number.parseInt(translate[1].split("%")[0]) - percentage) + "%"
             console.log("4")
@@ -60,7 +68,7 @@ function fadeIn(element, durationMS, delayMS, percentage, pixels) { // delay req
         translate = translate[0] + " " + number + ""
         } else {
             console.log("else fired")
-            var translate = `0% -${percentage}%`;
+            translate = `-50% ${-percentage}%`;
         }
         console.log("5")
         console.log(translate)
@@ -70,5 +78,10 @@ function fadeIn(element, durationMS, delayMS, percentage, pixels) { // delay req
         console.log(element.style.translate)
         console.log(translate)
     }, delayMS)
+}
 
+function scrollButtonAnimation(delay) {
+    setInterval(function () {
+        console.log("fired")
+    }, 1000)
 }
