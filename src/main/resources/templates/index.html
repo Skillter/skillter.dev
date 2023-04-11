@@ -1,26 +1,30 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th>
 <head>
+    <title>About Me</title>
     <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
     <!-- <link rel="stylesheet" href="/css/all.purged.css"> -->
-    <link rel="stylesheet" href="http://localhost:8080/css/bulma.css">
-    <link rel="stylesheet" href="http://localhost:8080/css/main.css">
+    <link rel="stylesheet" href="/css/bulma.css">
+    <link rel="stylesheet" href="/css/main.css"> <!-- leave it here, what's later overwrites first ones' classes -->
     <!-- <script src="/js/particles.js"></script> -->
-    <script src="http://localhost:8080/js/particles.js"></script>
+    <script src="/js/particles.js"></script>
     <!-- <script src="/js/index.js"></script> -->
-    <script src="http://localhost:8080/js/index.js"></script>
+    <script src="/js/index.js"></script>
 
     <!-- <link rel="stylesheet" href="http://localhost:8080/css/darkmode.css"> -->
 
-    <title>About Me</title>
+    
 </head>
 <body>
     <div id="particles-js">
-        <img src="/images/avatar.png" id="welcome-button" class="button fade" th:text="'0 ' + ${atUrl}" onload="fadeIn(this, 750, 1000)" >Current URL</img>
+        <img src="/images/avatar.png" id="welcome-button" class="button" th:text="'0 ' + ${atUrl}" onload="" >Current URL</img>
         
         <div id="main-profile">
             <img id="avatar" class="fade" src="/images/avatar.png" unselectable="on" onload="animateProfile()">
-            <div id="name" class="fade">Skillter</div>
+            <div id="name" class="fade"> Skillter
+                <div id="tld" class="fade red">.dev</div>
+            </div>
+
             <script>
                 function animateProfile() {
                     document.getElementById('avatar').style.opacity = 1
@@ -28,11 +32,27 @@
                     setTimeout(function() {
                         document.getElementById('name').style.opacity = 1
                         document.getElementById('name').style.top = "12px"
+                        setTimeout(function() {
+                            document.getElementById('tld').style.opacity = 1
+                            document.getElementById('tld').style.top = "12px"
+                        }, 500)
                     }, 750)
                 }
+                
             </script>
         </div>
-        <div id="scroll-down-button" class="button is-bold has-shadow ">⬇</div>
+  <div id="scroll-down-button" style="transition: transform 200ms ease-out, filter 200ms ease-out, border 100ms ease-out;" class="button fade"> <!-- ⬇ -->
+            <script> 
+            fadeIn("scroll-down-button")
+            </script>
+            <svg class="svg" version="1.1" viewBox="0 0 612 612" >
+                <path class="st-arrow" d="M317.5,487.6c0.3-0.3,0.4-0.7,0.7-1.1l112.6-112.6c6.3-6.3,6.3-16.5,0-22.7c-6.3-6.3-16.5-6.3-22.7,0
+                                l-86,86V136.1c0-8.9-7.3-16.2-16.2-16.2c-8.9,0-16.2,7.3-16.2,16.2v301.1l-86-86c-6.3-6.3-16.5-6.3-22.7,0
+                                c-6.3,6.3-6.3,16.5,0,22.7l112.7,112.7c0.3,0.3,0.4,0.7,0.7,1c0.5,0.5,1.2,0.5,1.7,0.9c1.7,1.4,3.6,2.3,5.6,2.9
+                                c0.8,0.2,1.5,0.4,2.3,0.4C308.8,492.6,313.8,491.3,317.5,487.6z"/>
+            </svg>
+        </div> 
+
     </div>
     <!-- <div data-collapse="medium" data-animation="default" data-duration="400" role="banner" class="header is-centered button navigation banner navigation-bar w-nav"> -->
         
