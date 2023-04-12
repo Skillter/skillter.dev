@@ -11,16 +11,20 @@ function fadeIn1(element) {
 // TODO: clean it up man
 // Sees element.style.translate always as empty String if there's no delay
 // Doesn't work if the element has a class with translate that is !important
-function fadeIn(elementID, durationMS, delayMS, percentage, pixels) {
+function fadeIn(elementID, durationMS, delayMS, amount, isNewInPercentage) {
 
     if (delayMS === null || delayMS === undefined || delayMS < 100) {
         delayMS = 100
     }
-     if (percentage === null || percentage === undefined) {
-        percentage = 10
+    if (isNewInPercentage === null || isNewInPercentage === undefined) {
+        isNewInPercentage = true
     }
-     if (pixels === null || pixels === undefined) {
-        pixels = 32
+    if (amount === null || amount === undefined) {
+        if (isNewInPercentage) {
+            amount = 10
+        } else {
+            amount = 32
+        }
     }
     if (elementID === null || elementID === undefined) {
         console.log("element is null")
@@ -31,20 +35,20 @@ function fadeIn(elementID, durationMS, delayMS, percentage, pixels) {
     } else {
         durationMS = durationMS + "ms"
     }
-    setTimeout(function() { // delay required to load after css file
+    setTimeout(function () { // delay required to load after css file
         let element = document.getElementById(elementID)
         console.log(element.style.translate)
         console.log(element.style.transition)
         console.log("3")
         if (element.style.transition !== null && element.style.transition !== undefined && element.style.transition !== "") {
-            console.log("transition " + element.style.transition) 
+            console.log("transition " + element.style.transition)
             element.style.transition = element.style.transition.replace("!important", "") + `, opacity ${durationMS} ease-out, translate ${durationMS} ease-out`
             console.log("first if")
         } else {
             element.style.transition = `opacity ${durationMS} ease-out, translate ${durationMS} ease-out`
-            console.log("transition " + element.style.transition) 
+            console.log("transition " + element.style.transition)
             console.log("first else")
-        
+
         }
         console.log(element.style.transition)
         console.log(element.style)
@@ -54,25 +58,24 @@ function fadeIn(elementID, durationMS, delayMS, percentage, pixels) {
 
 
         if (element.style.translate !== null && element.style.translate !== undefined && element.style.translate !== "") {
-        console.log("if fired")
-        
-        element = element.style.translate.split(" ")
-        let number;
-        console.log("aaaaaaaaaaa" + translate)
-        if (translate[1].includes("%")) {
-            number = (Number.parseInt(translate[1].split("%")[0]) - percentage) + "%"
-            console.log("4")
-        } else if (translate[1].includes("px")) {
-            number = (Number.parseInt(translate[1].split("px")[0]) - pixels) + "px"
-        }
-        translate = translate[0] + " " + number + ""
+            console.log("if fired")
+
+            element = element.style.translate.split(" ")
+            let number;
+            console.log("aaaaaaaaaaa" + translate)
+            if (translate[1].includes("%")) {
+                number = (Number.parseInt(translate[1].split("%")[0]) - percentage) + "%"
+                console.log("4")
+            } else if (translate[1].includes("px")) {
+                number = (Number.parseInt(translate[1].split("px")[0]) - pixels) + "px"
+            }
+            translate = translate[0] + " " + number + ""
         } else {
-            console.log("else fired")
-            translate = `-50% ${-percentage}%`;
+            translate = isNewInPercentage ? `-50% ${-amount}%` : translate = `-50% ${-amount}px`
         }
         console.log("5")
         console.log(translate)
-    
+
         element.style.opacity = 1
         element.style.translate = translate
         console.log(element.style.translate)
