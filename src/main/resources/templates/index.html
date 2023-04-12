@@ -17,32 +17,35 @@
 </head>
 <body>
     <div id="particles-js">
-        <img src="/images/avatar.png" id="welcome-button" class="button" th:text="'0 ' + ${atUrl}" onload="" >Current URL</img>
+        <!-- <img src="/images/avatar.png" id="welcome-button" class="button" th:text="'0 ' + ${atUrl}" onload="" >Current URL</img> -->
         
+        <div id="banner" class=""> 
+            <div id="homepage-button" class="button">skillter.dev</div>
+        </div>
+
         <div id="main-profile">
             <img id="avatar" class="fade" src="/images/avatar.png" unselectable="on" onload="animateProfile()">
-            <div id="name" class="fade"> Skillter
+            <div id="name" class="fade">Skillter
                 <div id="tld" class="fade red">.dev</div>
             </div>
-
             <script>
                 function animateProfile() {
                     document.getElementById('avatar').style.opacity = 1
                     document.getElementById('avatar').style.translate = "-50% -100%"
-                }
-                setTimeout(function() {
+                    setTimeout(function() {
                         document.getElementById('name').style.opacity = 1
                         document.getElementById('name').style.top = "12px"
                         setTimeout(function() {
                             document.getElementById('tld').style.opacity = 1
                             document.getElementById('tld').style.top = "12px"
                         }, 750)
-                    }, 750)
+                    }, 500)
+                }
             </script>
         </div>
-  <div id="scroll-down-button" style="transition: transform 200ms ease-out, filter 200ms ease-out, border 100ms ease-out;" class="button fade"> <!-- ⬇ -->
+  <div id="scroll-down-button" style="transition: all 150ms ease-out;" class="button fade"> <!-- ⬇ -->
             <script> 
-            fadeIn("scroll-down-button", 1000, 0)
+            fadeIn("scroll-down-button", 750, 200, 10, false)
             </script>
             <svg class="svg" version="1.1" viewBox="0 0 612 612" >
                 <path class="st-arrow" d="M317.5,487.6c0.3-0.3,0.4-0.7,0.7-1.1l112.6-112.6c6.3-6.3,6.3-16.5,0-22.7c-6.3-6.3-16.5-6.3-22.7,0
