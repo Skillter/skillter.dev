@@ -1,7 +1,7 @@
 // import {} from "css/main.css"
 
-particlesJS.load("particles-js", "particles.json");
-scrollButtonAnimation(1000)
+
+fadeIn("scroll-down-button", 750, 200, 10, false)
 
 function fadeIn1(element) {
     element.style.opacity = 1;
@@ -83,8 +83,3 @@ function fadeIn(elementID, durationMS, delayMS, amount, isNewInPercentage) {
     }, delayMS)
 }
 
-function scrollButtonAnimation(delay) {
-    setInterval(function () {
-        console.log("fired")
-    }, 1000)
-}
