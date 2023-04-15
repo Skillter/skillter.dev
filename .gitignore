@@ -11,6 +11,11 @@ gradle-app.setting
 node_modules/
 lib/
 
+# SSL certificate files
+keys/
+**/cert.pem
+**/cert.key
+
 ### STS ###
 .apt_generated
 .classpath
