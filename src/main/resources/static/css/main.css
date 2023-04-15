@@ -90,7 +90,7 @@ canvas {
   /* vertical-align: middle; */
   bottom: 10px; /* 20px */
   left: 50%;
-  translate: -50% 0;
+  /* translate: -50% 0 !important; */
   /* overflow-clip-margin: content-box;
   overflow: hidden; */
 
@@ -251,7 +251,7 @@ img {
   transform-origin: bottom;
 }
 
-.svg {z-index:9;position:relative;}
+/* .svg {z-index:9;position:relative;} */
 
 
 
