@@ -80,13 +80,13 @@ canvas {
   fill:#8b8b8b;
 }
 
-#skillter-button {
+#banner-homepage-button {
   position: absolute;
   padding: 0%; /* 6px */
   /* width: 90px; */
   border-radius: 0%;
   height: 24px;
-  left: 1%;
+  left: 12px;
   top: 50%;
   translate: 0% -50%;
   transition: all 150ms ease-out;
@@ -97,7 +97,10 @@ canvas {
   font-stretch: extra-condensed;
   font-size: 150%;
   font-family: url('fonts/ResothoExtralight.otf');
-}
+  text-decoration: none; 
+  cursor: default;
+} 
+
 
 #second-page {
   position: absolute;
@@ -118,9 +121,10 @@ canvas {
   /* background-color: darkgray; */
   /* border-radius: 5px; */ /* makes the shape rounded */
   /* vertical-align: middle; */
-  bottom: 10px; /* 20px */
+  border-width: 1px;
+  bottom: 20px; /* 20px */
   left: 50%;
-  /* translate: -50% 0 !important; */
+  translate: -50% 0 !important;
   /* overflow-clip-margin: content-box;
   overflow: hidden; */
 
@@ -171,12 +175,19 @@ canvas {
   z-index: 2;
 }
 
+#name-text {
+  position: absolute;
+  left: 50%;
+  translate: -50% 0%; /* Top of the text box is at the center */
+  font-weight: 100;
+  font-size: 100%;
+}
+
 #tld {
   position: absolute;
   right: -12%;
   bottom: 60%;
   translate: 50% 50%; /* Top of the text box is at the center */
-  font-family: 'Courier New', Courier, monospace;
   font-size: 50%;
   color: #67436b;
 }
@@ -240,11 +251,10 @@ img {
 }
 
 .button:hover { 
-  /* transform: scale(105%, 105%); */
   /* filter: brightness(120%); */ /* When blur is applied this changes the brightness of the background */
   color: hsl(0, 0%, 65%) !important;
   fill: hsl(0, 0%, 65%) !important;
-  border-color: hsla(0, 0%, 100%, 0.465) !important;  
+  border-color: hsla(0, 0%, 100%, 0.465) !important;
 
 }
 
