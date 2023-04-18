@@ -1,20 +1,8 @@
 
-tryToAnimate()
+window.addEventListener("DOMContentLoaded", () => {
+    fadeIn("scroll-down-button", 750, 200, 0, false)
+})
 
-
-function tryToAnimate() {
-    console.log("almost working " + isIndexJSLoaded + isMainCSSLoaded)
-    if (isMainCSSLoaded) {
-        console.log("working")
-
-        fadeIn("scroll-down-button", 750, 200, 10, false) 
-
-
-    }
-}
-function fadeIn1(element) {
-    element.style.opacity = 1;
-} // Needs to have transition: opacity 0.5s ease-out;
 
 
 // TODO: clean it up man
@@ -22,9 +10,8 @@ function fadeIn1(element) {
 // Doesn't work if the element has a class with translate that is !important
 // To use this, call the method INSIDE THIS CLASS (otherwise it might not be defined in time), put class "fade" on the element, and use style="transition: all 100ms;" lastly pray it'll work
 function fadeIn(elementID, durationMS, delayMS, amount, isNewInPercentage) {
-
-    if (delayMS === null || delayMS === undefined || delayMS < 100) {
-        delayMS = 100
+    if (delayMS === null || delayMS === undefined || delayMS < 0) {
+        delayMS = 0
     }
     if (isNewInPercentage === null || isNewInPercentage === undefined) {
         isNewInPercentage = true
@@ -45,12 +32,16 @@ function fadeIn(elementID, durationMS, delayMS, amount, isNewInPercentage) {
     } else {
         durationMS = durationMS + "ms"
     }
+
+    // warning spaghetti code, just close eyes
     setTimeout(function () { // delay required to load after css file
-        let element = document.getElementById(elementID)
-        // console.log(element.style.translate)
-        // console.log(element.style.transition)
-        console.log("3")
-        if (element.style.transition !== null && element.style.transition !== undefined && element.style.transition !== "") {
+
+        var element = document.getElementById(elementID)
+
+        if (element === null) {
+            return
+        }
+        if (element.style.transition !== undefined && element.style.transition !== "") {
             console.log("transition " + element.style.transition)
             element.style.transition = element.style.transition.replace("!important", "") + `, opacity ${durationMS} ease-out, translate ${durationMS} ease-out`
             console.log("first if")
@@ -92,5 +83,6 @@ function fadeIn(elementID, durationMS, delayMS, amount, isNewInPercentage) {
         console.log(element.style.translate)
         console.log(translate)
     }, delayMS)
+
 }
 
