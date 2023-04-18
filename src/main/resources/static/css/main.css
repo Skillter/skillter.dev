@@ -25,7 +25,9 @@ canvas {
   position: fixed;
   top: 0%;
   left: 50%;
+  /* width: 60%; */
   width: 60%;
+  transition: width 500ms ease-out;
   height: 50px;
   translate: -50% 0%;
   /* background-image: url("https://irisshaders.net/images/backgrounds/iris-bkg-light.webp"); */
@@ -42,6 +44,31 @@ canvas {
   border-bottom-color: #5e516e;
   border-bottom-style: solid;
 
+}
+@media (min-width: 1100px) {
+  #banner {
+    width: 660px;
+  }
+}
+@media (min-width: 700px) and (max-width: 900px) {
+  #banner {
+    width: 70%;
+  }
+}
+@media (min-width: 500px) and (max-width: 700px) {
+  #banner {
+    width: 80%;
+  }
+}
+@media (min-width: 300px) and (max-width: 500px) {
+  #banner {
+    width: 90%;
+  }
+}
+@media (max-width: 300px) {
+  #banner {
+    width: 95%;
+  }
 }
 
 #banner-hr {
