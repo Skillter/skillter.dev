@@ -1,8 +1,22 @@
 
 window.addEventListener("DOMContentLoaded", () => {
     fadeIn("scroll-down-button", 750, 200, 0, false)
+
+    // Adjust section-bar-line's to the height of the text lines
+    document.getElementById("section-bar-line").style.height = (--document.getElementById("section-bar-sections").getElementsByTagName('*').length * (18 + 12)) + "px"
+    
+
+    // Sectionbar handler
+    document.getElementById("section-bar-pointer")
 })
 
+
+window.addEventListener("scroll", (info) => {
+    let scroll = this.scrollY;
+    console.log(scroll)
+
+    // console.log(info)
+})
 
 
 // TODO: clean it up man
