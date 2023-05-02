@@ -2,8 +2,11 @@
 <html lang="en" xmlns:th>
 
 <head>
-    <title>About Me</title>
-    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+    <title>Skillter - Carrier Biography and Portfolio</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description"
+        content="Hi, I'm Skillter. I'm a driven mid-level Java programmer with 3 years of experience. I have a diverse range of interests in computer science, give me the pleasure to demonstrate it myself.">
 
     <script type="text/javascript" src="https://livejs.com/live.js"></script> <!-- delete in production -->
     <!-- <link rel="stylesheet" href="/css/all.purged.css"> -->
@@ -13,7 +16,7 @@
     <script src="/js/index.js"></script>
     <!-- <script src="/js/index.js"></script> -->
 
-    <!-- <link rel="stylesheet" href="http://localhost:8080/css/darkmode.css"> -->
+    <!-- <link rel="stylesheet" href="/css/darkmode.css"> -->
 
 
 </head>
@@ -33,40 +36,54 @@
     </div>
     <div id="section-bar">
         <div id="section-bar-line"></div>
-        <div id="section-bar-pointer"></div>
-        <div id="section-bar-sections">
-            <div id="section-bar-sections-intro" class="section-bar-sections button">intro</div>
-            <div id="section-bar-sections-about-me" class="section-bar-sections button">about me</div>
+        <div id="section-bar-pointer">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" version="1.1">
+                <g xmlns="http://www.w3.org/2000/svg"
+                    transform="translate(0.000000,90.000000) scale(0.100000,-0.100000)">
+                    <path
+                        d="M355 796 c-107 -34 -186 -102 -232 -201 -24 -51 -28 -73 -28 -145 0 -72 4 -94 28 -146 130 -282 522 -281 654 1 24 51 28 73 28 145 0 72 -4 94 -28 145 -30 65 -81 124 -138 160 -78 50 -199 68 -284 41z" />
+                </g>
+            </svg>
+            <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" version="1.1">
+                <g xmlns="http://www.w3.org/2000/svg" transform="translate(0.000000,96.000000) scale(0.100000,-0.100000)">
+                    <path d="M375 700 l-190 -190 192 -192 193 -193 65 65 65 65 -127 127 -128 128 128 128 127 127 -63 63 c-34 34 -65 62 -67 62 -3 0 -91 -86 -195 -190z m222 88 l24 -22 -128 -128 -128 -128 128 -128 128 -128 -26 -24 -26 -24 -152 152 -152 152 150 150 c82 82 152 150 154 150 3 0 15 -10 28 -22z" />
+                </g>
+            </svg> -->
+            <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" version="1.1">
+                <g>
+                    <path d="m0 55l250 55-55-55 55-55z"/>
+                </g>
+            </svg> -->
+            <!-- <svg class="svg" version="1.1" viewBox="0 0 8000 8000">
+                <g xmlns="http://www.w3.org/2000/svg">
+                    <path d="M527.516,1467.818c0,89.98,73.203,163.182,163.182,163.182c89.916,0,163.184-73.135,163.184-163.182V672.49   L690.999,509.607L527.516,673.091V1467.818z"/>
+                    <path d="M863.98,336.626L726.921,473.685l347.587,347.587c51.905,51.908,136.368,51.908,188.274,0l42.5-42.499   c51.908-51.906,51.908-136.367,0-188.274L917.57,202.788C918.614,255.221,898.335,302.272,863.98,336.626z"/>
+                    <path d="M828.059,300.705c25.022-25.021,38.804-58.452,38.804-94.137c0-64.66-37.283-92.616-81.301-136.638   c-51.899-51.899-136.36-51.914-188.275,0L76.719,590.499c-51.908,51.906-51.908,136.367,0,188.274l42.499,42.499   c51.905,51.908,136.368,51.908,188.274,0L828.059,300.705z"/>
+                </g>
+            </svg> -->
         </div>
-
+        <div id="section-bar-sections">
+            <div id="section-bar-sections-intro" class="section-bar-sections button" onclick="document.getElementById('particles-js').scrollIntoView()">Intro</div>
+            <div id="section-bar-sections-about-me" class="section-bar-sections button" onclick="document.getElementById('second-page').scrollIntoView()">About Me</div>
+            <div id="section-bar-sections-projects" class="section-bar-sections button" onclick="document.getElementById('second-page').scrollIntoView()">Projects</div>
+        </div>
+        <script>
+        </script>
     </div>
     <div id="particles-js">
         <!-- <img src="/images/avatar.png" id="welcome-button" class="button" th:text="'0 ' + ${atUrl}" onload="" >Current URL</img> -->
         <div id="main-profile">
-            <script>
-                function animateProfile() {
-                    document.getElementById('avatar').style.opacity = 1
-                    document.getElementById('avatar').style.translate = "-50% -85%"
-                    // document.getElementById('avatar').style.transform = "translate(-50%, -100%)"
-                    setTimeout(function () {
-                        document.getElementById('name').style.opacity = 1
-                        document.getElementById('name').style.top = "12px"
-                        setTimeout(function () {
-                            document.getElementById('tld').style.opacity = 1
-                            document.getElementById('tld').style.top = "12px"
-                        }, 750)
-                    }, 500)
-                }
-            </script>
-            <img id="avatar" class="fade" src="/images/avatar.png" unselectable="on" onload="animateProfile()">
+            <img id="avatar" class="fade" src="/images/avatar.png" alt="Main avatar of Skillter's profile"
+                unselectable="on" onload="animateProfile()">
             <div id="name" class="fade">
-                <strong id="name-text">Skillter
+                <h1 id="name-text">Skillter 
                     <div id="tld" class="fade">.dev</div>
-                </strong>
+                </h1>
             </div>
 
         </div>
-        <div id="scroll-down-button" style="transition: all 150ms ease-out;" class="button button-design-primary fade"> <!-- ⬇ -->
+        <div id="scroll-down-button" style="transition: all 150ms ease-out;" class="button button-design-primary fade" onclick="document.getElementById('second-page').scrollIntoView()">
+            <!-- ⬇ -->
             <svg class="svg" version="1.1" viewBox="0 0 612 612">
                 <path class="st-arrow" d="M317.5,487.6c0.3-0.3,0.4-0.7,0.7-1.1l112.6-112.6c6.3-6.3,6.3-16.5,0-22.7c-6.3-6.3-16.5-6.3-22.7,0
                                 l-86,86V136.1c0-8.9-7.3-16.2-16.2-16.2c-8.9,0-16.2,7.3-16.2,16.2v301.1l-86-86c-6.3-6.3-16.5-6.3-22.7,0
