@@ -1,23 +1,85 @@
 
+
+
 window.addEventListener("DOMContentLoaded", () => {
     fadeIn("scroll-down-button", 750, 200, 0, false)
+    animateProfile()
 
     // Adjust section-bar-line's to the height of the text lines
     document.getElementById("section-bar-line").style.height = (--document.getElementById("section-bar-sections").getElementsByTagName('*').length * (18 + 12)) + "px"
-    
 
-    // Sectionbar handler
-    document.getElementById("section-bar-pointer")
 })
-
 
 window.addEventListener("scroll", (info) => {
-    let scroll = this.scrollY;
-    console.log(scroll)
+    let pages = ["particles-js", "second-page"]
+    let equivalentSections = ["section-bar-sections-intro", "section-bar-sections-about-me"]
 
-    // console.log(info)
+    // Sectionbar handler
+    for (let i=0; i < pages.length; i++) {
+        const elementString = pages[i];
+        // if (elementString === "second-page") return
+        let element = document.getElementById(elementString)
+
+
+        elementVisibleInPercent(element).then(function(percentage) {
+            if (percentage >= 50) {
+                let posY = i * (18 + 12) /* 18 + 12 per every line */
+                let currentSectionElement = document.getElementById(equivalentSections[i])
+                currentSectionElement.style.fontSize = 0.8 + "rem"
+                equivalentSections.forEach((elementString, index) => {
+                    if (index != i) {
+                        let element = document.getElementById(elementString)
+                        element.style.fontSize = 0.75 + "rem"
+                    }
+                });
+                document.getElementById("section-bar-pointer").style.top = posY + "px"
+            }
+        });
+    }
+
+    // sections.forEach(elementString => {
+    //     if (elementString === "second-page") return
+    //     let element = document.getElementById(elementString)
+    //     elementVisibleInPercent(element).then(function(percentage) {
+    //         console.log(elementString + ": " + percentage)
+    //     });
+    // });
+
 })
 
+const elementVisibleInPercent = (element) => {
+    return new Promise((resolve, reject) => {
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                resolve(Math.floor(entry.intersectionRatio * 100));
+                clearTimeout(timeout);
+                observer.disconnect();
+            });
+        });
+
+        observer.observe(element);
+        // Probably not needed, but in case something goes wrong.
+        const timeout = setTimeout(() => {
+            reject();
+        }, 500);
+    });
+};
+
+
+
+function animateProfile() {
+    document.getElementById('avatar').style.opacity = 1
+    document.getElementById('avatar').style.translate = "-50% -85%"
+    // document.getElementById('avatar').style.transform = "translate(-50%, -100%)"
+    setTimeout(function () {
+        document.getElementById('name').style.opacity = 1
+        document.getElementById('name').style.top = "12px"
+        setTimeout(function () {
+            document.getElementById('tld').style.opacity = 1
+            document.getElementById('tld').style.top = "12px"
+        }, 750)
+    }, 500)
+}
 
 // TODO: clean it up man
 // Sees element.style.translate always as empty String if there's no delay
