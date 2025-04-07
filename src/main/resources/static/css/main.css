@@ -36,12 +36,15 @@ canvas {
 #particles-js {
   position: absolute;
   width: 100%;
+  /*height: 98%;*/
   height: 98%;
   background-image: linear-gradient(to right bottom, #4d3d66, #241b36);
   /* background-image: url(""); */
   /* background-repeat: no-repeat; */
   /* background-size: cover; */
   /* background-position: 50% 50%; */
+
+  box-shadow: 0px -5px 30px -15px rgb(12, 10, 17) inset;
 }
 
 #banner {
@@ -235,21 +238,31 @@ canvas {
 }
 
 #second-page-background {
-  position: inherit;
+  /*position: inherit;
   transition: cubic-bezier(0.075, 0.82, 0.165, 1);
   right: 0px;
-  width: 40%;
+  width: 100%;
   height: 100%;
   border-image-slice: 50% 100% 100% 100%;
   background-size: 100%;
-  background-size: cover;
+  !*background-size: cover;*!
   image-rendering: optimizeQuality;
   background-repeat: no-repeat;
-  /* background-image: url("https://images.unsplash.com/photo-1542546068979-b6affb46ea8f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop"); */
-  /* background-image: url("https://images.unsplash.com/photo-1629757509637-7c99379d6d26?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop"); */
-  /* box-shadow: 80px 80px 80px 80px rgba(0, 0, 0, 0) inset; */
-  
-  z-index: 40;
+  !*background-image: linear-gradient(rgba(1, 1, 1, 0.1), rgba(1, 1, 1, 0.13));*!
+   background-image: url("http://localhost/images/second-page-background-final-quality-optimized.jpg");
+  !* background-image: url("https://images.unsplash.com/photo-1542546068979-b6affb46ea8f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop");*!
+  !* background-image: url("https://images.unsplash.com/photo-1629757509637-7c99379d6d26?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop"); *!
+
+  !*box-shadow: 0px 20px 0px 0px rgba(1,1,1,0) inset;*!
+
+  z-index: 40;*/
+
+  position: inherit;
+  width: 100%;
+  height: 100%;
+  background-color: #2E2440;
+
+  /*box-shadow: 0px 10px 30px rgb(33, 27, 47) inset;*/
 }
 
 #scroll-down-button {
