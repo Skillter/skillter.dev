@@ -2,9 +2,9 @@
     "name": "home",
     "compatibility_date": "2025-04-07",
     "assets": {
-      "directory": "./src/main/resources/static/",
-      "binding": "ASSETS",
-      "run_worker_first": true
+      "directory": "./src/main/resources/static/"
+      // "binding": "ASSETS",
+      // "run_worker_first": true
     }
   }
 
