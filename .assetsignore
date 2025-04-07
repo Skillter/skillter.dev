@@ -4,3 +4,9 @@
 # Cloudlare Pages' maximum size per file is 25 MiB
 # Let's remove files that exceed that limit:
 **/second-page-background-art-scale-1_70x.png
+.\src\main\resources\static\images\second-page-background-art-scale-1_70x.png
+\src\main\resources\static\images\second-page-background-art-scale-1_70x.png
+./src/main/resources/static/images/second-page-background-art-scale-1_70x.png
+/src/main/resources/static/images/second-page-background-art-scale-1_70x.png
+/opt/buildhome/repo/src/main/resources/static/images/second-page-background-art-scale-1_70x.png
+.opt/buildhome/repo/src/main/resources/static/images/second-page-background-art-scale-1_70x.png
