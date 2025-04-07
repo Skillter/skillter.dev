@@ -231,7 +231,7 @@ canvas {
   width: 100%;
   height: 90vh;
   /* background-image: linear-gradient(to right bottom, #65606d, #4a4653); */
-  background-image: url("https://irisshaders.net/images/backgrounds/iris-bkg-light.webp");
+  /* background-image: url("https://irisshaders.net/images/backgrounds/iris-bkg-light.webp"); */
   background-repeat: no-repeat;
   /* box-shadow: 80px 80px 80px 80px rgb(0, 0, 0) inset; */
   z-index: 50;
