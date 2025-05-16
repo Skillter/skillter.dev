@@ -1,0 +1,12 @@
+{
+    "version": 1,
+    "include": [
+        "/*"
+    ],
+    "exclude": [
+        "/build/*",
+        "**/second-page-background-art-scale-1_70x.png",
+        "*/second-page-background-art-scale-1_70x.png",
+        "second-page-background-art-scale-1_70x.png"
+    ]
+ }
