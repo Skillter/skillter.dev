@@ -47,6 +47,14 @@ out/
 ### VS Code ###
 .vscode/
 
+### Downloaded tools ###
+grype.zip
+install-grype.sh
+
+### Downloaded tools ###
+grype.zip
+install-grype.sh
+
 
 
 

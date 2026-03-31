@@ -1,7 +1,7 @@
 plugins {
 	id 'java'
-	id 'org.springframework.boot' version '3.1.0-M2'
-	id 'io.spring.dependency-management' version '1.1.0'
+	id 'org.springframework.boot' version '3.5.13'
+	id 'io.spring.dependency-management' version '1.1.7'
 
 //	id 'com.github.ben-manes.versions' version '0.39.0'
 //	id 'com.github.johnrengelman.shadow' version '7.1.2'
@@ -13,7 +13,6 @@ sourceCompatibility = 17
 
 repositories {
 	mavenCentral()
-	maven { url 'https://repo.spring.io/milestone' }
 }
 
 dependencies {
@@ -32,6 +31,10 @@ dependencies {
 	implementation 'org.postgresql:postgresql'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
+}
+
+springBoot {
+	mainClass = 'skillter.aboutme.AboutMeApplication'
 }
 
 tasks.register('watchForChanges') {
@@ -62,4 +65,43 @@ tasks.register('watchForChanges') {
 
 tasks.named('test') {
 	useJUnitPlatform()
+	systemProperty 'junit.jupiter.extensions.autodetection.enabled', 'true'
+}
+
+tasks.register('grypeScan') {
+	group = 'verification'
+	description = 'Scan dependencies for vulnerabilities using Grype'
+	
+	dependsOn 'bootJar'
+	
+	doLast {
+		def grypeCommand = System.getProperty('os.name').toLowerCase().contains('windows') ? 'grype.exe' : 'grype'
+		def hasGrype = false
+		
+		try {
+			def result = exec {
+				commandLine grypeCommand, '--version'
+				ignoreExitValue = true
+				standardOutput = new ByteArrayOutputStream()
+				errorOutput = new ByteArrayOutputStream()
+			}
+			hasGrype = result.exitValue == 0
+		} catch (Exception e) {
+			hasGrype = false
+		}
+		
+		if (!hasGrype) {
+			throw new GradleException("""Grype is not installed. Install it first:
+  Windows (Scoop): scoop install anchore/grype
+  Windows (Winget): winget install Anchore.Grype
+  macOS: brew install anchore/grype/grype
+  Linux: curl -sSfL https://get.anchore.io/grype | sh -s -- -b /usr/local/bin
+  
+  See: https://github.com/anchore/grype""")
+		}
+		
+		exec {
+			commandLine grypeCommand, "dir:${projectDir}/build/libs", '--fail-on', 'high', '-o', 'table'
+		}
+	}
 }
